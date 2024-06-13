@@ -1,6 +1,6 @@
 <x-template>
     <div class="mb-3">
-        <a href="{{ route('catalog') }}" class="btn btn-secondary">Kembali</a>
+        <a href="{{ route('catalog') }}" class="btn btn-secondary">Back</a>
     </div>
     <div class="row">
         <div class="col-lg-5">

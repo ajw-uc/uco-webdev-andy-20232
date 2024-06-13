@@ -9,7 +9,7 @@
             </section>
         </div>
         <div class="col-lg-7">
-            <div class="container mt-3">
+            <div class="mt-3">
                 <section>
                     <h3>{{ $product->name }}</h3>
                     <h1 class="fw-bold text-danger">Rp {{ number_format($product->price, 0, ',', '.') }}</h1>

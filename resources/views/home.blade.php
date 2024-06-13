@@ -1,7 +1,11 @@
 <x-template>
     <div class="mb-3 d-md-flex align-items-center">
         <div class="flex-grow-1 py-2">
-            Found {{ $products->count() }} product that matches keyword <b>{{ $search }}</b>
+            @if($search)
+            Found {{ $products->count() }} products that matches keyword <b>{{ $search }}</b>
+            @else
+            We have {{ $products->count() }} products in our catalog
+            @endif
         </div>
         <div class="">
             <div class="dropdown">

@@ -8,7 +8,7 @@
                 <button class="btn btn-secondary dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Sort by: {{ $sort }}
                 </button>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu dropdown-menu-end">
                     <li><a class="dropdown-item" href="{{ route('catalog', ['search' => $search, 'sort' => 'most recent']) }}">Most recent</a></li>
                     <li><a class="dropdown-item" href="{{ route('catalog', ['search' => $search, 'sort' => 'lowest price']) }}">Lowest price</a></li>
                     <li><a class="dropdown-item" href="{{ route('catalog', ['search' => $search, 'sort' => 'highest price']) }}">Highest price</a></li>

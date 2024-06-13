@@ -14,10 +14,12 @@
     <nav class="navbar">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('catalog') }}">ADADAS</a>
-            <div class="flex-grow-1 px-3 d-none d-lg-block">
+            <div class="flex-grow-1 px-5 d-none d-lg-block">
                 <form class="input-group" role="search" action="{{ route('catalog') }}">
                     <input class="form-control bg-light" type="search" placeholder="Type to search..." aria-label="Search" name="search">
-                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                    <button class="btn btn-light border" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
                 </form>
             </div>
             <div class="d-flex">
@@ -35,7 +37,9 @@
         <div class="container-fluid py-2 d-block d-lg-none">
             <form class="input-group" role="search" action="{{ route('catalog') }}">
                 <input class="form-control bg-light" type="search" placeholder="Type to search..." aria-label="Search" name="search">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn btn-light border" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
             </form>
         </div>
     </nav>

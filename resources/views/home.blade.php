@@ -26,7 +26,7 @@
         @foreach($products as $product)
         <div class="col-md-6 col-lg-3">
             <div class="card mb-3">
-                    <a href="{{ route('catalog-detail', ['id' => $product->id]) }}" class="btn btn-light p-0 border-0 text-start">
+                <a href="{{ route('catalog-detail', ['id' => $product->id]) }}" class="btn btn-light p-0 border-0 text-start">
                     <img src="https://img.lazcdn.com/g/p/db5ee9c40b70ba33d459a160b5e3cc8a.jpg_960x960q80.jpg_.webp" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="card-title">{{ $product->name }}</div>

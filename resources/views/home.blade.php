@@ -14,3 +14,4 @@
         @endfor
     </div>
 </x-template>
+<div></div>

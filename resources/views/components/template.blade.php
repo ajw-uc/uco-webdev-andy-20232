@@ -23,15 +23,24 @@
                 </form>
             </div>
             <div class="d-flex">
-                <a href="#" class="btn"><i class="fa fa-shopping-cart"></i></a>
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-user"></i>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="#">Log out</a></li>
-                    </ul>
-                </div>
+                @auth
+                    <a href="#" class="btn"><i class="fa fa-shopping-cart"></i></a>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-user"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Sign out</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                @else
+                    <a href="{{ route('login') }}" class="btn btn-primary">Log in</a>
+                @endauth
             </div>
         </div>
         <div class="container-fluid py-2 d-block d-lg-none">

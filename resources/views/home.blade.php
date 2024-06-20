@@ -44,4 +44,5 @@
             Add product
         </a>
     </div>
+    <div></div>
 </x-template>

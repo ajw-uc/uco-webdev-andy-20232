@@ -27,7 +27,9 @@
         <div class="col-md-6 col-lg-3">
             <div class="card mb-3">
                 <a href="{{ route('catalog-detail', ['id' => $product->id]) }}" class="btn btn-light p-0 border-0 text-start">
-                    <img src="https://img.lazcdn.com/g/p/db5ee9c40b70ba33d459a160b5e3cc8a.jpg_960x960q80.jpg_.webp" class="card-img-top" alt="...">
+                    @if ($product->images->isNotEmpty())
+                    <img src="{{ asset('storage/product/'.$product->images[0]->name) }}" class="card-img-top" style="height:250px" alt="...">
+                    @endif
                     <div class="card-body">
                         <div class="card-title">{{ $product->name }}</div>
                         <div class="text-danger fw-bold">Rp {{ number_format($product->price, 0, ',', '.') }}</div>
@@ -38,11 +40,12 @@
         @endforeach
     </div>
 
+    @can('create_product', \App\Models\Product::class)
     <div class="position-fixed end-0 bottom-0 pe-3 pb-3">
         <a href="{{ route('product-create') }}" class="btn btn-success">
             <i class="fa fa-plus"></i>
             Add product
         </a>
     </div>
-    <div></div>
+    @endcan
 </x-template>

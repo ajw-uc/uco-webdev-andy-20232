@@ -3,6 +3,7 @@
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\ProductMiddleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +29,6 @@ Route::controller(UserController::class)->group(function() {
 });
 
 Route::controller(ProductController::class)->group(function() {
-    Route::middleware('auth')->group(function() {
-        Route::match(['get', 'post'], '/product/create', 'create')->name('product-create');
-        Route::match(['get', 'post'], '/product/{id}/edit', 'edit')->name('product-edit');
-    });
+    Route::match(['get', 'post'], '/product/create', 'create')->name('product-create')->middleware(['auth', ProductMiddleware::class])->can('create_product', App\Models\Product::class);
+    Route::match(['get', 'post'], '/product/{id}/edit', 'edit')->name('product-edit');
 });

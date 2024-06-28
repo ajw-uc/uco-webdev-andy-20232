@@ -29,7 +29,7 @@ class CatalogController extends Controller
             $products->orderBy('name', 'desc');
         }
 
-        $data['products'] = $products->get();
+        $data['products'] = $products->paginate();
 
         return view('home', $data);
     }

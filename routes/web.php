@@ -29,6 +29,8 @@ Route::controller(UserController::class)->group(function() {
 });
 
 Route::controller(ProductController::class)->group(function() {
-    Route::match(['get', 'post'], '/product/create', 'create')->name('product-create')->middleware(['auth', ProductMiddleware::class])->can('create_product', App\Models\Product::class);
-    Route::match(['get', 'post'], '/product/{id}/edit', 'edit')->name('product-edit');
+    Route::middleware(['auth', App\Http\Middleware\ProductMiddleware::class])->group(function() {
+        Route::match(['get', 'post'], '/product/create', 'create')->can('create_product', App\Models\Product::class)->name('product-create');
+        Route::match(['get', 'post'], '/product/{id}/edit', 'edit')->name('product-edit');
+    });
 });

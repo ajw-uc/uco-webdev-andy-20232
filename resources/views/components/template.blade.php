@@ -24,12 +24,15 @@
             </div>
             <div class="d-flex">
                 @auth
-                    <a href="#" class="btn"><i class="fa fa-shopping-cart"></i></a>
+                    <a href="{{ route('cart.list') }}" class="btn"><i class="fa fa-shopping-cart"></i></a>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa fa-user"></i>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <a href="{{ route('invoice.list') }}" class="dropdown-item">Purchase history</a>
+                            </li>
                             <li>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf

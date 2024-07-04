@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ShoppingCartController;
 use App\Http\Controllers\CatalogController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\ProductMiddleware;
@@ -33,4 +35,16 @@ Route::controller(ProductController::class)->group(function() {
         Route::match(['get', 'post'], '/product/create', 'create')->can('create_product', App\Models\Product::class)->name('product-create');
         Route::match(['get', 'post'], '/product/{id}/edit', 'edit')->name('product-edit');
     });
+});
+
+
+Route::controller(ShoppingCartController::class)->middleware('auth')->group(function() {
+    Route::get('/cart', 'list')->name('cart.list');
+    Route::post('/cart/add/{product_id}', 'add')->name('cart.add');
+});
+
+Route::controller(InvoiceController::class)->middleware('auth')->group(function() {
+    Route::get('/invoice', 'list')->name('invoice.list');
+    Route::get('/invoice/{id}', 'view')->name('invoice.view');
+    Route::post('/invoice/create', 'create')->name('invoice.create');
 });

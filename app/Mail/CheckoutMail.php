@@ -41,7 +41,7 @@ class CheckoutMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'shopping_cart.mail_checkout',
+            view: 'invoice.mail',
             with: [
                 'items' => $this->items,
                 'user' => $this->user

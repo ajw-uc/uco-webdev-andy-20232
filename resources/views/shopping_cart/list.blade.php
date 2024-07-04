@@ -35,11 +35,13 @@
             </tfoot>
         </table>
 
+        @if($items->isNotEmpty())
         <form method="post" action="{{ route('invoice.create') }}">
             @csrf
             <div class="text-end">
                 <button type="submit" class="btn btn-primary btn-lg">Checkout</button>
             </div>
         </form>
+        @endif
     </div>
 </x-template>

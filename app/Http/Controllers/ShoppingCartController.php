@@ -40,4 +40,27 @@ class ShoppingCartController extends Controller
 
         return redirect()->route('cart.list');
     }
+
+    function edit(string $cart_id, Request $request)
+    {
+        $shopping_cart = ShoppingCart::where('id', $cart_id)->firstOrFail();
+
+        $data = $request->validate([
+            'quantity' => ['required', 'integer', 'min:1'],
+        ]);
+
+        $shopping_cart->quantity = $data['quantity'];
+        $shopping_cart->save();
+
+        return redirect()->route('cart.list');
+    }
+
+    function delete(string $cart_id, Request $request)
+    {
+        $shopping_cart = ShoppingCart::where('id', $cart_id)->firstOrFail();
+
+        $shopping_cart->delete();
+
+        return redirect()->route('cart.list');
+    }
 }

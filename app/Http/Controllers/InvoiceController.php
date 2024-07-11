@@ -56,8 +56,9 @@ class InvoiceController extends Controller
 
             // kirim mailable
             $user = $request->user();
-            Mail::to($user)
-                ->send(new \App\Mail\CheckoutMail($items, $request->user()));
+            // Mail::to($user)
+            //     ->send(new \App\Mail\CheckoutMail($items, $request->user()));
+            $user->notify(new \App\Notifications\CheckoutNotification($invoice));
 
             return redirect()->route('invoice.view', ['id' => $invoice->id]);
         });

@@ -24,6 +24,10 @@
             </div>
             <div class="d-flex">
                 @auth
+                    <a href="{{ route('notification.list') }}" class="btn">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge text-bg-secondary">{{ request()->user()->unreadNotifications->count() }}</span>
+                    </a>
                     <a href="{{ route('cart.list') }}" class="btn"><i class="fa fa-shopping-cart"></i></a>
                     <div class="dropdown">
                         <button class="btn dropdown-toggle w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false">
